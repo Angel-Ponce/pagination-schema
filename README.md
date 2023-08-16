@@ -8,6 +8,7 @@
 - [Usage](#usage-)
 - [Types](#types-)
 - [API Reference](#api-refernce-)
+- [Examples](#examples)
 
 ## Instalation 📦
 
@@ -85,3 +86,7 @@ const config: PaginationConfig;
 | `config.total`       | The total numbers of items in your database          | `number`                                 |
 | `config.perPage`     | The number of items showed per page                  | `number`                                 |
 | `config.currentPage` | The current page in your pagination                  | `number`                                 |
+
+## Examples ✔
+
+- [React](https://stackblitz.com/edit/react-pjfvds?file=src%2FPagination.js)
