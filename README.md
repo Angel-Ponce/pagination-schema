@@ -8,7 +8,7 @@
 - [Usage](#usage-)
 - [Types](#types-)
 - [API Reference](#api-refernce-)
-- [Examples](#examples)
+- [Examples](#examples-)
 
 ## Instalation 📦
 
@@ -68,7 +68,7 @@ Output array:
 
 **zero (0)** indicates the ellipsis separator, (...)
 
-## Types ❤️
+## Types 🦺
 
 Any-Pagination was made with `TypeScript` ❤️ so, you can use the configuration types as you need:
 
