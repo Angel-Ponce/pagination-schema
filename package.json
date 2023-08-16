@@ -1,11 +1,9 @@
 {
   "name": "easy-pagination",
   "version": "0.0.1",
-  "description": "",
+  "description": "Useful and easy helper to create pagination components out of the box.",
   "main": "index.ts",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
+  "scripts": {},
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Angel-Ponce/easy-pagination.git"
