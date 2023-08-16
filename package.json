@@ -4,7 +4,9 @@
   "description": "Useful and easy helper to create pagination components out of the box.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
-  "scripts": {},
+  "scripts": {
+    "prepublish": "tsc"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Angel-Ponce/easy-pagination.git"
