@@ -2,7 +2,8 @@
   "name": "easy-pagination",
   "version": "0.0.1",
   "description": "Useful and easy helper to create pagination components out of the box.",
-  "main": "index.ts",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "scripts": {},
   "repository": {
     "type": "git",
