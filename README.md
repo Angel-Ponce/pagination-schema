@@ -91,3 +91,4 @@ const config: PaginationConfig;
 
 - [React](https://stackblitz.com/edit/any-pagination-react?file=src%2FPagination.js)
 - [Svelte](https://stackblitz.com/edit/any-pagination-svelte?file=src%2FPagination.svelte)
+- [Vue](https://stackblitz.com/edit/any-pagination-vue?file=src%2FPagination.vue)
