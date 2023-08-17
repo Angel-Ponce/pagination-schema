@@ -89,4 +89,5 @@ const config: PaginationConfig;
 
 ## Examples ✔
 
-- [React](https://stackblitz.com/edit/react-pjfvds?file=src%2FPagination.js)
+- [React](https://stackblitz.com/edit/any-pagination-react?file=src%2FPagination.js)
+- [Svelte](https://stackblitz.com/edit/any-pagination-svelte?file=src%2FPagination.svelte)
