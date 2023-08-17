@@ -9,7 +9,7 @@ const paginate = (config: PaginationConfig) => {
     .fill(0)
     .map((_o, i) => i + 1);
 
-  if (pages.length <= 6) {
+  if (pages.length <= 7) {
     return pages;
   }
 
@@ -27,11 +27,11 @@ const paginate = (config: PaginationConfig) => {
   }
 
   if (startNearest) {
-    return [...start, start[1] + 1, start[1] + 2, 0, final[1]];
+    return [...start, start[1] + 1, start[1] + 2, 0, ...final];
   }
 
   if (finalNearest) {
-    return [start[0], 0, final[0] - 2, final[0] - 1, ...final];
+    return [...start, 0, final[0] - 2, final[0] - 1, ...final];
   }
 
   return [
