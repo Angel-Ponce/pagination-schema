@@ -5,12 +5,17 @@
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
-    "prepublish": "tsc"
+    "prepublish": "tsc",
+    "build": "tsc"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Angel-Ponce/any-pagination.git"
   },
+  "files": [
+    "dist",
+    "README.md"
+  ],
   "keywords": [
     "pagination",
     "typescript",
@@ -26,5 +31,8 @@
   "homepage": "https://github.com/Angel-Ponce/any-pagination#readme",
   "devDependencies": {
     "typescript": "^5.1.6"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }
