@@ -1,33 +1,33 @@
-<h1 align="center">Any Pagination 📄</h1>
+<h1 align="center">Pagination Schema 📄</h1>
 
-<p align="center">Useful and easy helper to create pagination components.</p>
+<p align="center">Useful and easy helper to create pagination components out of the box.</p>
 
 ## Table of contents
 
-- [Instalation](#instalation-)
+- [Installation](#instalation-)
 - [Usage](#usage-)
 - [Types](#types-)
 - [API Reference](#api-refernce-)
 - [Examples](#examples-)
 
-## Instalation 📦
+## Installation 📦
 
 ```bash
-$ npm install any-pagination
+$ npm install pagination-schema
 ```
 
 or
 
 ```bash
-$ yarn add any-pagination
+$ yarn add pagination-schema
 ```
 
 ## Usage ✨
 
 ```javascript
-import { paginate } from "any-pagination";
+import generate from "pagination-schema";
 
-const pages = paginate({
+const pages = generate({
   total: 100,
   perPage: 5,
   currentPage: 1,
@@ -45,9 +45,9 @@ const pages = paginate({
 The output array indicates the structure of the pagination component, for example:
 
 ```javascript
-import { paginate } from "any-pagination";
+import generate from "pagination-schema";
 
-const pages = paginate({
+const pages = generate({
   total: 230,
   perPage: 10,
   currentPage: 15,
@@ -60,36 +60,36 @@ The rendered pagination should have the following structure:
 
 ![Alt text](/.github/example.png)
 
-You are free to handle all the events, styles and behaviours of your component, the `paginate` helper only helps you to build the structure of your pagination component.
+You are free to handle all the events, styles and behaviors of your component, the `generate` helper only helps you to build the structure of your pagination component.
 
 Output array:
 
 **number {n ∈ N} (1,2,3...∞)** indicates a page number
 
-**zero (0)** indicates the ellipsis separator, (...)
+**zero (0)** indicates the ellipsis separator, (...) [or another separator symbol]
 
 ## Types 🦺
 
-Any-Pagination was made with `TypeScript` ❤️ so, you can use the configuration types as you need:
+Pagination Schema was made with `TypeScript` ❤️ so, you can use the configuration types as you need:
 
 ```javascript
-import type { PaginationConfig } from "any-pagination";
+import type { PaginationConfig } from "pagination-schema";
 
 const config: PaginationConfig;
 ```
 
-## API Refernce 📃
+## API Reference 📃
 
 | Item                 | Description                                          | Type                                     |
 | -------------------- | ---------------------------------------------------- | ---------------------------------------- |
-| `paginate`           | The helper function to make the pagination structure | `(config: PaginationConfig) => number[]` |
+| `generate`           | The helper function to make the pagination structure | `(config: PaginationConfig) => number[]` |
 | `config.total`       | The total numbers of items in your database          | `number`                                 |
 | `config.perPage`     | The number of items showed per page                  | `number`                                 |
 | `config.currentPage` | The current page in your pagination                  | `number`                                 |
 
 ## Examples ✔
 
-- [React](https://stackblitz.com/edit/any-pagination-react?file=src%2FPagination.js)
-- [Svelte](https://stackblitz.com/edit/any-pagination-svelte?file=src%2FPagination.svelte)
-- [Vue](https://stackblitz.com/edit/any-pagination-vue?file=src%2FPagination.vue)
-- [Angular](https://stackblitz.com/edit/any-pagination-angular?file=src%2Fpagination%2Fpagination.component.html)
+- [React](https://stackblitz.com/edit/pagination-schema-react?file=src%2FPagination.js)
+- [Svelte](https://stackblitz.com/edit/pagination-schema-svelte?file=src%2FPagination.svelte)
+- [Vue](https://stackblitz.com/edit/pagination-schema-vue?file=src%2FPagination.vue)
+- [Angular](https://stackblitz.com/edit/pagination-schema-angular?file=src%2Fpagination%2Fpagination.component.html)

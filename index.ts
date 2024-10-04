@@ -1,10 +1,10 @@
-export interface PaginationConfig {
+export type PaginationConfig = {
   total: number;
   perPage: number;
   currentPage: number;
-}
+};
 
-const paginate = (config: PaginationConfig) => {
+const generate = (config: PaginationConfig) => {
   const pages = new Array(Math.ceil(config.total / config.perPage))
     .fill(0)
     .map((_o, i) => i + 1);
@@ -45,4 +45,4 @@ const paginate = (config: PaginationConfig) => {
   ];
 };
 
-export { paginate };
+export default generate;
