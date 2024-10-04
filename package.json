@@ -1,5 +1,5 @@
 {
-  "name": "any.pagination",
+  "name": "any-pagination",
   "version": "1.0.0",
   "description": "Useful and easy helper to create pagination components out of the box.",
   "main": "dist/index.js",
