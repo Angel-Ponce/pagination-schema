@@ -1,4 +1,4 @@
-name: Tag
+name: Publish
 
 on:
   push:
@@ -18,10 +18,9 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: "lts/*"
-      - run: npm ci
-      - run: npm run build
-      - run: npm audit signatures
-      - name: Tag
+      - run: yarn
+      - run: yarn build
+      - name: Publish
         env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: npx semantic-release
