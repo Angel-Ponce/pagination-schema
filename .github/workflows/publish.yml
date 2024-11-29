@@ -20,6 +20,7 @@ jobs:
           node-version: "lts/*"
       - run: yarn
       - run: yarn build
+      - run: yarn test
       - name: Publish
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
