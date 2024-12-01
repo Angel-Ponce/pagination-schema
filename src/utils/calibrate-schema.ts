@@ -11,7 +11,8 @@ const linealSchema = (schema: number[]) => {
 
       if (previous && next && Math.abs(next - previous) === 2)
         linealSchema.push(previous + 1);
-      else linealSchema.push(value);
+      else if (previous && next && Math.abs(next - previous) !== 1)
+        linealSchema.push(value);
     }
   });
 
