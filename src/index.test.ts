@@ -203,7 +203,7 @@ test("no calibrated miscellaneous", (onFinish) => {
       siblingCount: 3,
       autoCalibrate: false,
     })
-  ).toEqual([1, 2, 3, 4, 5, 0, 7, 8, 9, 10, 11, 12, 13, 0, 16, 17, 18, 19, 20]);
+  ).toEqual([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 0, 16, 17, 18, 19, 20]);
 
   expect(
     generate({
@@ -263,7 +263,7 @@ test("no calibrated miscellaneous", (onFinish) => {
       boundaryCount: 2,
       autoCalibrate: false,
     })
-  ).toEqual([1, 2, 3, 0, 5, 6, 7, 0, 18, 19, 20]);
+  ).toEqual([1, 2, 3, 4, 5, 6, 7, 0, 18, 19, 20]);
 
   expect(
     generate({
@@ -313,7 +313,7 @@ test("no calibrated miscellaneous", (onFinish) => {
       boundaryCount: 2,
       autoCalibrate: false,
     })
-  ).toEqual([1, 2, 3, 0, 14, 15, 16, 0, 18, 19, 20]);
+  ).toEqual([1, 2, 3, 0, 14, 15, 16, 17, 18, 19, 20]);
 
   expect(
     generate({

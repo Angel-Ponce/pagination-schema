@@ -22,5 +22,16 @@ export const cleanSchema = (dirtySchema: number[]) => {
     return true;
   });
 
+  cleanSchema = cleanSchema.map((value, index) => {
+    if (value !== 0) return value;
+
+    const previousValue = cleanSchema[index - 1];
+    const nextValue = cleanSchema[index + 1];
+
+    if (previousValue && nextValue && Math.abs(nextValue - previousValue) === 2)
+      return previousValue + 1;
+    else return value;
+  });
+
   return cleanSchema;
 };
