@@ -1,5 +1,6 @@
 import { getRange, type MinMaxRange } from "./utils/get-range";
 import { cleanSchema } from "./utils/clean-schema";
+import { calibrateSchema } from "./utils/calibrate-schema";
 
 export type PaginationConfig = {
   total: number;
@@ -7,11 +8,13 @@ export type PaginationConfig = {
   currentPage: number;
   siblingCount?: number;
   boundaryCount?: number;
+  autoCalibrate?: boolean;
 };
 
 const generate = ({
   siblingCount = 1,
   boundaryCount = 0,
+  autoCalibrate = true,
   ...config
 }: PaginationConfig) => {
   if (
@@ -27,11 +30,9 @@ const generate = ({
     .fill(0)
     .map((_o, i) => i + 1);
 
-  if (
-    pages.length <= 3 ||
-    pages.length <= siblingCount * 2 + boundaryCount * 2 + 3
-  )
-    return pages;
+  const minLength = siblingCount * 2 + boundaryCount * 2 + 3;
+
+  if (pages.length <= minLength) return pages;
 
   const minMax: MinMaxRange = [1, pages[pages.length - 1]];
 
@@ -49,7 +50,11 @@ const generate = ({
     minMax
   ).filter((value) => !startRange.includes(value) && !endRange.includes(value));
 
-  return cleanSchema([...startRange, 0, ...middleRange, 0, ...endRange]);
+  let schema = cleanSchema([...startRange, 0, ...middleRange, 0, ...endRange]);
+
+  return autoCalibrate
+    ? calibrateSchema(schema, config.currentPage, minLength)
+    : schema;
 };
 
 export default generate;
