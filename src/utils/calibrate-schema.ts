@@ -33,7 +33,8 @@ export const calibrateSchema = (
   const currentPageIndex = schema.indexOf(currentPage);
   const lengthDiff = minLength - schema.filter((value) => value !== 0).length;
 
-  if (zeroIndex === -1 || currentPageIndex === -1) return linealSchema(schema);
+  if (zeroIndex === -1 || currentPageIndex === -1 || lengthDiff < 0)
+    return linealSchema(schema);
 
   let newSchema = [...schema];
 
