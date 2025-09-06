@@ -1,40 +1,18 @@
 import { getRange } from "./get-range";
 
-const linealSchema = (schema: number[]) => {
-  const linealSchema: number[] = [];
-
-  schema.forEach((value, index) => {
-    if (value !== 0) linealSchema.push(value);
-    else {
-      const previous = schema[index - 1];
-      const next = schema[index + 1];
-
-      if (previous && next && Math.abs(next - previous) === 2)
-        linealSchema.push(previous + 1);
-      else if (previous && next && Math.abs(next - previous) !== 1)
-        linealSchema.push(value);
-    }
-  });
-
-  return linealSchema;
-};
-
 export const calibrateSchema = (
   schema: number[],
   currentPage: number,
-  minLength: number
+  minPages: number
 ) => {
-  if (schema.filter((value) => value === 0).length === 2)
-    return linealSchema(schema);
-
-  if (schema.length === minLength + 2) return linealSchema(schema);
+  if (schema.length === minPages + 2) return schema;
 
   const zeroIndex = schema.indexOf(0);
   const currentPageIndex = schema.indexOf(currentPage);
-  const lengthDiff = minLength - schema.filter((value) => value !== 0).length;
+  const lengthDiff = minPages + 2 - schema.length;
 
-  if (zeroIndex === -1 || currentPageIndex === -1 || lengthDiff < 0)
-    return linealSchema(schema);
+  if (zeroIndex === -1 || currentPageIndex === -1 || lengthDiff <= 0)
+    return schema;
 
   let newSchema = [...schema];
 
@@ -42,15 +20,15 @@ export const calibrateSchema = (
     newSchema.splice(
       zeroIndex,
       0,
-      ...getRange(schema[zeroIndex - 1] + 1, lengthDiff)
+      ...getRange(schema[zeroIndex - 1] + 1, lengthDiff - 1)
     );
   } else {
     newSchema.splice(
       zeroIndex + 1,
       0,
-      ...getRange(schema[zeroIndex + 1] - lengthDiff - 1, lengthDiff)
+      ...getRange(schema[zeroIndex + 1] - lengthDiff, lengthDiff - 1)
     );
   }
 
-  return linealSchema(newSchema);
+  return newSchema;
 };

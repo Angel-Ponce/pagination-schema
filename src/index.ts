@@ -1,6 +1,6 @@
 import { getRange, type MinMaxRange } from "./utils/get-range";
-import { cleanSchema } from "./utils/clean-schema";
 import { calibrateSchema } from "./utils/calibrate-schema";
+import { cleanSchema } from "./utils/clean-schema";
 
 export type PaginationConfig = {
   total: number;
@@ -24,25 +24,20 @@ const generate = ({
     siblingCount < 0 ||
     boundaryCount < 0
   )
-    return [];
+    return [1];
 
-  const pages = new Array(Math.ceil(config.total / config.perPage))
-    .fill(0)
-    .map((_o, i) => i + 1);
+  const totalPages = Math.ceil(config.total / config.perPage);
 
-  const minLength = siblingCount * 2 + boundaryCount * 2 + 3;
+  const minPages = siblingCount * 2 + boundaryCount * 2 + 3;
 
-  if (pages.length <= minLength) return pages;
+  if (totalPages <= minPages)
+    return Array.from({ length: totalPages }, (_, index) => index + 1);
 
-  const minMax: MinMaxRange = [1, pages[pages.length - 1]];
+  const minMax: MinMaxRange = [1, totalPages];
 
   const startRange = getRange(1, boundaryCount, minMax);
 
-  const endRange = getRange(
-    pages[pages.length - boundaryCount - 1],
-    boundaryCount,
-    minMax
-  );
+  const endRange = getRange(totalPages - boundaryCount, boundaryCount, minMax);
 
   const middleRange = getRange(
     config.currentPage - siblingCount,
@@ -50,10 +45,16 @@ const generate = ({
     minMax
   ).filter((value) => !startRange.includes(value) && !endRange.includes(value));
 
-  let schema = cleanSchema([...startRange, 0, ...middleRange, 0, ...endRange]);
+  const schema = cleanSchema([
+    ...startRange,
+    0,
+    ...middleRange,
+    0,
+    ...endRange,
+  ]);
 
   return autoCalibrate
-    ? calibrateSchema(schema, config.currentPage, minLength)
+    ? calibrateSchema(schema, config.currentPage, minPages)
     : schema;
 };
 

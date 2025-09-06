@@ -7,19 +7,19 @@ test("single page", (onFinish) => {
 });
 
 test("invalid configuration", (onFinish) => {
-  expect(generate({ total: -1, perPage: 1, currentPage: 1 })).toEqual([]);
+  expect(generate({ total: -1, perPage: 1, currentPage: 1 })).toEqual([1]);
 
-  expect(generate({ total: 10, perPage: 0, currentPage: 1 })).toEqual([]);
+  expect(generate({ total: 10, perPage: 0, currentPage: 1 })).toEqual([1]);
 
-  expect(generate({ total: 10, perPage: 1, currentPage: 0 })).toEqual([]);
+  expect(generate({ total: 10, perPage: 1, currentPage: 0 })).toEqual([1]);
 
   expect(
     generate({ total: 10, perPage: 1, currentPage: 1, boundaryCount: -1 })
-  ).toEqual([]);
+  ).toEqual([1]);
 
   expect(
     generate({ total: 10, perPage: 1, currentPage: 1, siblingCount: -1 })
-  ).toEqual([]);
+  ).toEqual([1]);
 
   onFinish();
 });
