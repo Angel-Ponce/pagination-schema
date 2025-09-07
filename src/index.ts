@@ -11,6 +11,8 @@ export type PaginationConfig = {
   autoCalibrate?: boolean;
 };
 
+const isInvalid = (n: number) => Number.isNaN(n) || n < 0;
+
 const generate = ({
   siblingCount = 1,
   boundaryCount = 0,
@@ -18,11 +20,13 @@ const generate = ({
   ...config
 }: PaginationConfig) => {
   if (
-    config.perPage <= 0 ||
-    config.total < 0 ||
-    config.currentPage <= 0 ||
-    siblingCount < 0 ||
-    boundaryCount < 0
+    isInvalid(config.perPage) ||
+    config.perPage === 0 ||
+    isInvalid(config.total) ||
+    isInvalid(config.currentPage) ||
+    config.currentPage === 0 ||
+    isInvalid(siblingCount) ||
+    isInvalid(boundaryCount)
   )
     return [1];
 
