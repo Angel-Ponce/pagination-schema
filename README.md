@@ -9,10 +9,10 @@ See Playground</a>
 
 ## Table of contents
 
-- [Installation](#instalation-)
+- [Installation](#installation-)
 - [Usage](#usage-)
 - [Types](#types-)
-- [API Reference](#api-refernce-)
+- [API Reference](#api-reference-)
 - [Examples](#examples-)
 
 ## Installation 📦
