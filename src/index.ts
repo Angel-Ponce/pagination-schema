@@ -46,7 +46,7 @@ const generate = ({
   const middleRange = getRange(
     config.currentPage - siblingCount,
     siblingCount * 2,
-    minMax
+    minMax,
   ).filter((value) => !startRange.includes(value) && !endRange.includes(value));
 
   const schema = cleanSchema([

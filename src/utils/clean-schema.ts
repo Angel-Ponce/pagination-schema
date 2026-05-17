@@ -2,11 +2,11 @@ export const cleanSchema = (schema: number[]) => {
   let cleanSchema: number[] = [];
 
   cleanSchema = schema.filter(
-    (value) => value === 0 || !cleanSchema.includes(value)
+    (value) => value === 0 || !cleanSchema.includes(value),
   );
 
   cleanSchema = cleanSchema.filter(
-    (value, index) => value !== 0 || cleanSchema[index + 1] !== 0
+    (value, index) => value !== 0 || cleanSchema[index + 1] !== 0,
   );
 
   const linealSchema: number[] = [];
